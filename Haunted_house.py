@@ -1,26 +1,46 @@
 def checkio(house, stephan, ghost):
-    print stephan
-    print ghost
     coords_of_map = get_coords(house)
-    paths = find_all_paths(coords_of_map, 16, 1)
-    move = moving(paths, ghost)
+    paths = find_all_paths(coords_of_map, stephan, 1)
+    print "Stephan is at: " + str(stephan)
+    print "The Ghost is at: " + str(ghost)
+    print coords_of_map
+    move = moving(paths, stephan, ghost, coords_of_map)
     return move
 
 
-def moving(paths, ghost):
+def moving(paths, stephan, ghost, coords_of_map):
     for path in paths:
-        move = path[1]
-    if (path[0] - move) == -1:
-        direction = ''.join('W')
-    elif (path[0] - move) == 1:
-        direction = ''.join('E')
-    elif (path[0] - move) == -4:
-        direction = ''.join('S')
-    elif (path[0] - move) == 4:
-        direction = ''.join('N')
-    print direction
-    return direction
-
+    	if ghost in path:
+    		paths.remove(path)
+	if paths:
+		for path in sorted(paths):
+			if path[-1] == 1:
+				print path
+				move = path[1]
+				if (path[0] - move) == 1:
+					direction = ''.join('W')
+				elif (path[0] - move) == -1:
+					direction = ''.join('E')
+				elif (path[0] - move) == -4:
+					direction = ''.join('S')
+				elif (path[0] - move) == 4:
+					direction = ''.join('N')
+				print direction
+				return direction
+	else:
+		nodes = coords_of_map[stephan]
+		for move in nodes:
+			move = path[1]
+			if (path[0] - move) == -1:
+				direction = ''.join('W')
+			elif (path[0] - move) == 1:
+				direction = ''.join('E')
+			elif (path[0] - move) == -4:
+				direction = ''.join('S')
+			elif (path[0] - move) == 4:
+				direction = ''.join('N')
+			print direction
+			return direction
 
 def find_all_paths(graph, start, end, path=[]):
     path = path + [start]
