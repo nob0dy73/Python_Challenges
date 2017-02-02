@@ -1,46 +1,70 @@
-def checkio(house, stephan, ghost):
-    coords_of_map = get_coords(house)
-    paths = find_all_paths(coords_of_map, stephan, 1)
-    print "Stephan is at: " + str(stephan)
-    print "The Ghost is at: " + str(ghost)
-    print coords_of_map
-    move = moving(paths, stephan, ghost, coords_of_map)
-    return move
+import random
 
+def checkio(house, stephan, ghost):
+	coords_of_map = get_coords(house)
+	paths = find_all_paths(coords_of_map, stephan, 1)
+	#print "Stephan is at: " + str(stephan)
+	#print "The Ghost is at: " + str(ghost)
+	if stephan == 1:
+		return('N')
+	else:
+		move = moving(paths, stephan, ghost, coords_of_map)
+
+	return move
+
+
+def neighbors(stephan, coords_of_map):
+	neighbors = coords_of_map[stephan]
+	
+	for neighbor in neighbors:
+		if (stephan - neighbor) == 1:
+			direction = ''.join('W')
+		elif (stephan - neighbor) == -1:
+			direction = ''.join('E')
+		elif (stephan - neighbor) == -4:
+			direction = ''.join('S')
+		elif (stephan - neighbor) == 4:
+			direction = ''.join('N')
+		print direction
+		return direction
 
 def moving(paths, stephan, ghost, coords_of_map):
-    for path in paths:
-    	if ghost in path:
-    		paths.remove(path)
-	if paths:
-		for path in sorted(paths):
-			if path[-1] == 1:
-				print path
-				move = path[1]
-				if (path[0] - move) == 1:
-					direction = ''.join('W')
-				elif (path[0] - move) == -1:
-					direction = ''.join('E')
-				elif (path[0] - move) == -4:
-					direction = ''.join('S')
-				elif (path[0] - move) == 4:
-					direction = ''.join('N')
-				print direction
-				return direction
+	clear_paths = []
+	visited = []
+	for path in paths:
+		if ghost not in path:
+			clear_paths.append(path)
+		else:
+			continue			
+	if clear_paths:
+        print 'clear_paths'
+        for path in sorted(clear_paths):
+            if path[-1] == 1:
+                move = path[1]
+            if (path[0] - move) == 1:
+                direction = ''.join('W')
+            elif (path[0] - move) == -1:
+                direction = ''.join('E')
+            elif (path[0] - move) == -4:
+                direction = ''.join('S')
+            elif (path[0] - move) == 4:
+                direction = ''.join('N')
+            return direction
 	else:
+	    print 'random path'
 		nodes = coords_of_map[stephan]
-		for move in nodes:
-			move = path[1]
-			if (path[0] - move) == -1:
-				direction = ''.join('W')
-			elif (path[0] - move) == 1:
-				direction = ''.join('E')
-			elif (path[0] - move) == -4:
-				direction = ''.join('S')
-			elif (path[0] - move) == 4:
-				direction = ''.join('N')
-			print direction
-			return direction
+		ran = random.randint(1, len(nodes)-1)
+		move = nodes[ran]
+		if (path[0] - move) == -1:
+			direction = ''.join('W')
+		elif (path[0] - move) == 1:
+			direction = ''.join('E')
+		elif (path[0] - move) == -4:
+			direction = ''.join('S')
+		elif (path[0] - move) == 4:
+			direction = ''.join('N')
+		return direction
+
 
 def find_all_paths(graph, start, end, path=[]):
     path = path + [start]
@@ -56,316 +80,69 @@ def find_all_paths(graph, start, end, path=[]):
                 paths.append(newpath)
     return paths
 
+
 def get_coords(house):
     Map = {}
+    
+    def make_room(directions, doors=None):
+        list(doors)
+        newdir = []
+        cardnialdir = {'N' : (room-3),
+                       'E' : (room+2),
+                       'S' : (room+5),
+                       'W' : (room),
+                       }
+        if doors:
+            for door in doors:
+                if door in directions:
+                    directions.remove(door)
+        for key, value in cardnialdir.iteritems():
+            if key in directions:
+                newdir.append(value)
+        return newdir
+	
+    
     for room, doors in enumerate(house):
         theroom = room + 1
         N = (room-3)
         E = (room+2)
         S = (room+5)
         W = (room)
-        # If there are no doors
-        if doors == '':
-            #Left edge and top edge
-            if theroom % 4 == 1 and (room-4) < 0:
-                Map[theroom] = [E, S]
-            #Left edge and bottom edge
-            elif theroom % 4 == 1 and S > 16:
-                Map[theroom] = [E, N]
-            #Left edge
-            elif theroom % 4 == 1:
-                Map[theroom] = [E, S, N]
-            #Right edge and top edge
-            elif theroom % 4 == 0 and (room-4) < 0:
-                Map[theroom] = [W, S]
-            #right edge and bottom edge
-            elif theroom % 4 == 0 and S > 16:
-                Map[theroom] = [W, N]
-            #right edge
-            elif theroom % 4 == 0:
-                Map[theroom] = [W, S, N]
-            #Top edge
-            elif (room-4) < 0:
-                Map[theroom] = [E, W, S]
-            #Bottom edge
-            elif S > 16:
-                Map[theroom] = [E, W, N]
-            #Middle
-            else:
-                Map[theroom] = [E, W, N, S]
-        #If there are doors
-        elif doors != '':
-            #If door to South
-            if doors == 'S':
-                #Left edge and top edge
-                if theroom % 4 == 1 and (room-4) < 0:
-                    Map[theroom] = [E]
-                #Left edge and bottom edge
-                elif theroom % 4 == 1 and S > 16:
-                    Map[theroom] = [E, N]
-                #Left edge
-                elif theroom % 4 == 1:
-                    Map[theroom] = [E, N]
-                #Right edge and top edge
-                elif theroom % 4 == 0 and (room-4) < 0:
-                    Map[theroom] = [W]
-                #right edge and bottom edge
-                elif theroom % 4 == 0 and S > 16:
-                    Map[theroom] = [W, N]
-                #right edge
-                elif theroom % 4 == 0:
-                    Map[theroom] = [W, N]
-                #Top edge
-                elif (room-4) < 0:
-                    Map[theroom] = [E, W]
-                #Middle
-                else:
-                    Map[theroom] = [E, W, N]
-            #If door to North
-            if doors == 'N':
-                #Left edge and top edge
-                if theroom % 4 == 1 and (room-4) < 0:
-                    Map[theroom] = [E, S]
-                #Left edge and bottom edge
-                elif theroom % 4 == 1 and S > 16:
-                    Map[theroom] = [E]
-                #Left edge
-                elif theroom % 4 == 1:
-                    Map[theroom] = [E, S]
-                #Right edge and top edge
-                elif theroom % 4 == 0 and (room-4) < 0:
-                    Map[theroom] = [W, S]
-                #right edge and bottom edge
-                elif theroom % 4 == 0 and S > 16:
-                    Map[theroom] = [W]
-                #right edge
-                elif theroom % 4 == 0:
-                    Map[theroom] = [W, S]
-                #Bottom edge
-                elif S > 16:
-                    Map[theroom] = [E, W]
-                #Middle
-                else:
-                    Map[theroom] = [E, W, S]
-            #If door to East
-            if doors == 'E':
-                #Left edge and top edge
-                if theroom % 4 == 1 and (room-4) < 0:
-                    Map[theroom] = [S]
-                #Left edge and bottom edge
-                elif theroom % 4 == 1 and S > 16:
-                    Map[theroom] = [N]
-                #Left edge
-                elif theroom % 4 == 1:
-                    Map[theroom] = [S, N]
-                #Right edge and top edge
-                elif theroom % 4 == 0 and (room-4) < 0:
-                    Map[theroom] = [W, S]
-                #right edge and bottom edge
-                elif theroom % 4 == 0 and S > 16:
-                    Map[theroom] = [W, N]
-                #right edge
-                elif theroom % 4 == 0:
-                    Map[theroom] = [W, S, N]
-                #Top edge
-                elif (room-4) < 0:
-                    Map[theroom] = [W, S]
-                #Bottom edge
-                elif S > 16:
-                    Map[theroom] = [W, N]
-                #Middle
-                else:
-                    Map[theroom] = [W, N, S]
-            #if door to West
-            if doors == 'W':
-                #Left edge and top edge
-                if theroom % 4 == 1 and (room-4) < 0:
-                    Map[theroom] = [E, S]
-                #Left edge and bottom edge
-                elif theroom % 4 == 1 and S > 16:
-                    Map[theroom] = [E, N]
-                #Left edge
-                elif theroom % 4 == 1:
-                    Map[theroom] = [E, S, N]
-                #Right edge and top edge
-                elif theroom % 4 == 0 and (room-4) < 0:
-                    Map[theroom] = [S]
-                #right edge and bottom edge
-                elif theroom % 4 == 0 and S > 16:
-                    Map[theroom] = [N]
-                #right edge
-                elif theroom % 4 == 0:
-                    Map[theroom] = [S, N]
-                #Top edge
-                elif (room-4) < 0:
-                    Map[theroom] = [E, S]
-                #Bottom edge
-                elif S > 16:
-                    Map[theroom] = [E, N]
-                #Middle
-                else:
-                    Map[theroom] = [E, N, S]
-            #If door to SouthEast
-            if doors == 'SE':
-                #Left edge and bottom edge
-                if theroom % 4 == 1 and S > 16:
-                    Map[theroom] = [N]
-                #Left edge
-                elif theroom % 4 == 1:
-                    Map[theroom] = [N]
-                #Right edge and top edge
-                elif theroom % 4 == 0 and (room-4) < 0:
-                    Map[theroom] = [W]
-                #right edge and bottom edge
-                elif theroom % 4 == 0 and S > 16:
-                    Map[theroom] = [W, N]
-                #right edge
-                elif theroom % 4 == 0:
-                    Map[theroom] = [W, N]
-                #Top edge
-                elif (room-4) < 0:
-                    Map[theroom] = [W]
-                #Middle
-                else:
-                    Map[theroom] = [W, N]
-            #If door to SouthWest
-            if doors == 'SW':
-                #Left edge and top edge
-                if theroom % 4 == 1 and (room-4) < 0:
-                    Map[theroom] = [E]
-                #Left edge and bottom edge
-                elif theroom % 4 == 1 and S > 16:
-                    Map[theroom] = [E, N]
-                #Left edge
-                elif theroom % 4 == 1:
-                    Map[theroom] = [E, N]
-                #right edge and bottom edge
-                elif theroom % 4 == 0 and S > 16:
-                    Map[theroom] = [N]
-                #right edge
-                elif theroom % 4 == 0:
-                    Map[theroom] = [N]
-                #Top edge
-                elif (room-4) < 0:
-                    Map[theroom] = [E]
-                #Bottom edge
-                elif S > 16:
-                    Map[theroom] = [E, N]
-                #Middle
-                else:
-                    Map[theroom] = [E, N]
-            #If door to NorthEast
-            if doors == 'NE':
-                #Left edge and top edge
-                if theroom % 4 == 1 and (room-4) < 0:
-                    Map[theroom] = [S]
-                #Left edge
-                elif theroom % 4 == 1:
-                    Map[theroom] = [S]
-                #Right edge and top edge
-                elif theroom % 4 == 0 and (room-4) < 0:
-                    Map[theroom] = [W, S]
-                #right edge and bottom edge
-                elif theroom % 4 == 0 and S > 16:
-                    Map[theroom] = [W]
-                #right edge
-                elif theroom % 4 == 0:
-                    Map[theroom] = [W, S]
-                #Top edge
-                elif (room-4) < 0:
-                    Map[theroom] = [W, S]
-                #Bottom edge
-                elif S > 16:
-                    Map[theroom] = [W]
-                #Middle
-                else:
-                    Map[theroom] = [W, S]
-            #if door to NorthWest
-            if doors == 'NW':
-                #Left edge and top edge
-                if theroom % 4 == 1 and (room-4) < 0:
-                    Map[theroom] = [E, S]
-                #Left edge and bottom edge
-                elif theroom % 4 == 1 and S > 16:
-                    Map[theroom] = [E]
-                #Left edge
-                elif theroom % 4 == 1:
-                    Map[theroom] = [E, S]
-                #Right edge and top edge
-                elif theroom % 4 == 0 and (room-4) < 0:
-                    Map[theroom] = [W, S]
-                #right edge
-                elif theroom % 4 == 0:
-                    Map[theroom] = [S]
-                #Top edge
-                elif (room-4) < 0:
-                    Map[theroom] = [E, S]
-                #Bottom edge
-                elif S > 16:
-                    Map[theroom] = [E]
-                #Middle
-                else:
-                    Map[theroom] = [E, S]        
-            #if door to North South
-            if doors == 'NS':
-                #Left edge and top edge
-                if theroom % 4 == 1 and (room-4) < 0:
-                    Map[theroom] = [E]
-                #Left edge and bottom edge
-                elif theroom % 4 == 1 and S > 16:
-                    Map[theroom] = [E]
-                #Left edge
-                elif theroom % 4 == 1:
-                    Map[theroom] = [E]
-                #Right edge and top edge
-                elif theroom % 4 == 0 and (room-4) < 0:
-                    Map[theroom] = [W]
-                #right edge and bottom edge
-                elif theroom % 4 == 0 and S > 16:
-                    Map[theroom] = [W]
-                #right edge
-                elif theroom % 4 == 0:
-                    Map[theroom] = [W]
-                #Top edge
-                elif (room-4) < 0:
-                    Map[theroom] = [E, W]
-                #Bottom edge
-                elif S > 16:
-                    Map[theroom] = [E, W]
-                #Middle
-                else:
-                    Map[theroom] = [E, W]
-            #if door to West East
-            if doors == 'WE':
-                #Left edge and top edge
-                if theroom % 4 == 1 and (room-4) < 0:
-                    Map[theroom] = [S]
-                #Left edge and bottom edge
-                elif theroom % 4 == 1 and S > 16:
-                    Map[theroom] = [N]
-                #Left edge
-                elif theroom % 4 == 1:
-                    Map[theroom] = [S, N]
-                #Right edge and top edge
-                elif theroom % 4 == 0 and (room-4) < 0:
-                    Map[theroom] = [S]
-                #right edge and bottom edge
-                elif theroom % 4 == 0 and S > 16:
-                    Map[theroom] = [N]
-                #right edge
-                elif theroom % 4 == 0:
-                    Map[theroom] = [S, N]
-                #Top edge
-                elif (room-4) < 0:
-                    Map[theroom] = [S]
-                #Bottom edge
-                elif S > 16:
-                    Map[theroom] = [W, N]
-                #Middle
-                else:
-                    Map[theroom] = [N, S]
+        
 
-
+        #Left edge and top edge
+        if theroom % 4 == 1 and (room-4) < 0:
+            Map[theroom] = make_room(['E', 'S'], doors)       
+        #Right edge and top edge
+        elif theroom % 4 == 0 and (room-4) < 0:
+            Map[theroom] = make_room(['W', 'S'], doors,)
+        #Left edge and bottom edge
+        elif theroom % 4 == 1 and S > 16:
+            Map[theroom] = make_room(['E', 'N'], doors)
+        #right edge and bottom edge
+        elif theroom % 4 == 0 and S > 16:
+            Map[theroom] = make_room(['W', 'N'], doors,)
+        #Top edge
+        elif (room-4) < 0:
+            Map[theroom] = make_room(['E', 'W', 'S'], doors,)
+        #Left edge
+        elif theroom % 4 == 1:
+            Map[theroom] = make_room(['E', 'S', 'N'], doors,)
+        #right edge
+        elif theroom % 4 == 0:
+            Map[theroom] = make_room(['W', 'S', 'N'], doors,)
+        #Bottom edge
+        elif S > 16:
+            Map[theroom] = make_room(['E', 'W', 'N'], doors,)
+        #Middle
+        else:
+            Map[theroom] = make_room(['E', 'W', 'N', 'S'], doors,)
+        
+        
+        
+        
+        
+    
     return Map
 
 
