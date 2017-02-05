@@ -381,6 +381,7 @@ DEBUG	virtual_environment/webdev/local/lib/python2.7/re.py	/^DEBUG = sre_compile
 DEBUG	virtual_environment/webdev/websites/website1/website1/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
 DIGITS	virtual_environment/webdev/lib/python2.7/sre_parse.py	/^DIGITS = set("0123456789")$/;"	kind:variable	line:22
 DIGITS	virtual_environment/webdev/local/lib/python2.7/sre_parse.py	/^DIGITS = set("0123456789")$/;"	kind:variable	line:22
+DIRS	Haunted_house.py	/^    DIRS = {"N": -4, "S": 4, "E": 1, "W": -1}$/;"	kind:variable	line:361
 Days_Between.py	Days_Between.py	1;"	kind:file	line:1
 DictMixin	virtual_environment/webdev/lib/python2.7/UserDict.py	/^class DictMixin:$/;"	kind:class	line:87
 DictMixin	virtual_environment/webdev/local/lib/python2.7/UserDict.py	/^class DictMixin:$/;"	kind:class	line:87
@@ -426,6 +427,7 @@ HEXDIGITS	virtual_environment/webdev/lib/python2.7/sre_parse.py	/^HEXDIGITS = se
 HEXDIGITS	virtual_environment/webdev/local/lib/python2.7/sre_parse.py	/^HEXDIGITS = set("0123456789abcdefABCDEF")$/;"	kind:variable	line:25
 Hashable	virtual_environment/webdev/lib/python2.7/_abcoll.py	/^class Hashable:$/;"	kind:class	line:32
 Hashable	virtual_environment/webdev/local/lib/python2.7/_abcoll.py	/^class Hashable:$/;"	kind:class	line:32
+Haunted_house.py	Haunted_house.py	1;"	kind:file	line:1
 IN	virtual_environment/webdev/lib/python2.7/sre_constants.py	/^IN = "in"$/;"	kind:variable	line:48
 IN	virtual_environment/webdev/local/lib/python2.7/sre_constants.py	/^IN = "in"$/;"	kind:variable	line:48
 INFO	virtual_environment/webdev/lib/python2.7/sre_constants.py	/^INFO = "info"$/;"	kind:variable	line:50
@@ -2491,13 +2493,15 @@ check_enableusersite	virtual_environment/webdev/local/lib/python2.7/site.py	/^de
 check_it	python9.py	/^    def check_it(array):$/;"	kind:function	line:28
 check_route	Open_Labyrinth.py	/^    def check_route(func, labyrinth):$/;"	kind:function	line:82
 check_route	Open_Labyrinth2.py	/^    def check_route(func, labyrinth):$/;"	kind:function	line:21
-check_solution	Disposable_teleports.py	/^    def check_solution(func, teleports_str):$/;"	kind:function	line:110
+check_solution	Disposable_teleports.py	/^    def check_solution(func, teleports_str):$/;"	kind:function	line:64
+check_solution	Haunted_house.py	/^    def check_solution(func, house):$/;"	kind:function	line:363
 checkcache	virtual_environment/webdev/lib/python2.7/linecache.py	/^def checkcache(filename=None):$/;"	kind:function	line:43
 checkcache	virtual_environment/webdev/local/lib/python2.7/linecache.py	/^def checkcache(filename=None):$/;"	kind:function	line:43
 checkgroup	virtual_environment/webdev/lib/python2.7/sre_parse.py	/^    def checkgroup(self, gid):$/;"	kind:member	line:85
 checkgroup	virtual_environment/webdev/local/lib/python2.7/sre_parse.py	/^    def checkgroup(self, gid):$/;"	kind:member	line:85
-checkio	Disposable_teleports.py	/^def checkio(teleports_string):$/;"	kind:function	line:1
+checkio	Disposable_teleports.py	/^def checkio(teleports_string):$/;"	kind:function	line:4
 checkio	Ghost_age.py	/^def checkio(opacity):$/;"	kind:function	line:3
+checkio	Haunted_house.py	/^def checkio(house, stephan, ghost):$/;"	kind:function	line:1
 checkio	Median.py	/^def checkio(data):$/;"	kind:function	line:3
 checkio	Open_Labyrinth.py	/^def checkio(maze_map):$/;"	kind:function	line:49
 checkio	Open_Labyrinth2.py	/^def checkio(maze_map):$/;"	kind:function	line:1
@@ -4206,11 +4210,12 @@ filterwarnings	virtual_environment/webdev/lib/python2.7/warnings.py	/^def filter
 filterwarnings	virtual_environment/webdev/local/lib/python2.7/warnings.py	/^def filterwarnings(action, message="", category=Warning, module="", lineno=0,$/;"	kind:function	line:45
 finalize_options	virtual_environment/webdev/lib/python2.7/distutils/__init__.py	/^        def finalize_options (self):$/;"	kind:member	line:38
 finalize_options	virtual_environment/webdev/local/lib/python2.7/distutils/__init__.py	/^        def finalize_options (self):$/;"	kind:member	line:38
-find_all_paths	Disposable_teleports.py	/^def find_all_paths(graph, start, end, path=[]):$/;"	kind:function	line:82
+find_all_paths	Disposable_teleports.py	/^def find_all_paths(graph, start, end, path):$/;"	kind:function	line:43
+find_all_paths	Haunted_house.py	/^def find_all_paths(graph, start, end, path=[]):$/;"	kind:function	line:25
 find_config_files	virtual_environment/webdev/lib/python2.7/distutils/__init__.py	/^def find_config_files(self):$/;"	kind:function	line:53
 find_config_files	virtual_environment/webdev/local/lib/python2.7/distutils/__init__.py	/^def find_config_files(self):$/;"	kind:function	line:53
 find_message	python3.py	/^def find_message(text):$/;"	kind:function	line:3
-find_paths	Disposable_teleports.py	/^def find_paths(graph):$/;"	kind:function	line:97
+find_paths	Disposable_teleports.py	/^def find_paths(graph):$/;"	kind:function	line:58
 findall	virtual_environment/webdev/lib/python2.7/re.py	/^def findall(pattern, string, flags=0):$/;"	kind:function	line:169
 findall	virtual_environment/webdev/local/lib/python2.7/re.py	/^def findall(pattern, string, flags=0):$/;"	kind:function	line:169
 finditer	virtual_environment/webdev/lib/python2.7/re.py	/^    def finditer(pattern, string, flags=0):$/;"	kind:function	line:181
@@ -4257,8 +4262,9 @@ get	virtual_environment/webdev/local/lib/python2.7/UserDict.py	/^    def get(sel
 get	virtual_environment/webdev/local/lib/python2.7/_abcoll.py	/^    def get(self, key, default=None):$/;"	kind:member	line:360
 get	virtual_environment/webdev/local/lib/python2.7/os.py	/^            def get(self, key, failobj=None):$/;"	kind:member	line:444
 get	virtual_environment/webdev/local/lib/python2.7/sre_parse.py	/^    def get(self):$/;"	kind:member	line:201
+get_coords	Haunted_house.py	/^def get_coords(house):$/;"	kind:function	line:39
 get_neighbours	Open_Labyrinth.py	/^def get_neighbours(coords_of_map, position):$/;"	kind:function	line:23
-get_nodes	Disposable_teleports.py	/^def get_nodes(mylist):$/;"	kind:function	line:65
+get_nodes	Disposable_teleports.py	/^def get_nodes(mylist):$/;"	kind:function	line:26
 get_passphrase	Solve_Cipher_map.py	/^def get_passphrase(ciphered_password, coords_of_X):$/;"	kind:function	line:19
 getatime	virtual_environment/webdev/lib/python2.7/genericpath.py	/^def getatime(filename):$/;"	kind:function	line:57
 getatime	virtual_environment/webdev/local/lib/python2.7/genericpath.py	/^def getatime(filename):$/;"	kind:function	line:57
@@ -4793,6 +4799,7 @@ mbcs.py	virtual_environment/webdev/local/lib/python2.7/encodings/mbcs.py	1;"	kin
 min	Min_and_Max.py	/^def min(*args, **kwargs):$/;"	kind:function	line:2
 model_name	virtual_environment/webdev/websites/website1/polls/migrations/0001_initial.py	/^            model_name='choice',$/;"	kind:variable	line:34
 models.py	virtual_environment/webdev/websites/website1/polls/models.py	1;"	kind:file	line:1
+moving	Haunted_house.py	/^def moving(paths, ghost):$/;"	kind:function	line:10
 name	virtual_environment/webdev/lib/python2.7/os.py	/^    name = 'ce'$/;"	kind:variable	line:88
 name	virtual_environment/webdev/lib/python2.7/os.py	/^    name = 'nt'$/;"	kind:variable	line:56
 name	virtual_environment/webdev/lib/python2.7/os.py	/^    name = 'os2'$/;"	kind:variable	line:70
@@ -4865,7 +4872,7 @@ pardir	virtual_environment/webdev/local/lib/python2.7/ntpath.py	/^pardir = '..'$
 pardir	virtual_environment/webdev/local/lib/python2.7/posixpath.py	/^pardir = '..'$/;"	kind:variable	line:38
 parse	virtual_environment/webdev/lib/python2.7/sre_parse.py	/^def parse(str, flags=0, pattern=None):$/;"	kind:function	line:675
 parse	virtual_environment/webdev/local/lib/python2.7/sre_parse.py	/^def parse(str, flags=0, pattern=None):$/;"	kind:function	line:675
-parse_string	Disposable_teleports.py	/^def parse_string(teleports_string):$/;"	kind:function	line:51
+parse_string	Disposable_teleports.py	/^def parse_string(teleports_string):$/;"	kind:function	line:12
 parse_template	virtual_environment/webdev/lib/python2.7/sre_parse.py	/^def parse_template(source, pattern):$/;"	kind:function	line:703
 parse_template	virtual_environment/webdev/local/lib/python2.7/sre_parse.py	/^def parse_template(source, pattern):$/;"	kind:function	line:703
 pathsep	virtual_environment/webdev/lib/python2.7/ntpath.py	/^pathsep = ';'$/;"	kind:variable	line:28

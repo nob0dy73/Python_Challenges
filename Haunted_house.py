@@ -1,69 +1,90 @@
 import random
 
 def checkio(house, stephan, ghost):
-	coords_of_map = get_coords(house)
-	paths = find_all_paths(coords_of_map, stephan, 1)
-	#print "Stephan is at: " + str(stephan)
-	#print "The Ghost is at: " + str(ghost)
-	if stephan == 1:
-		return('N')
-	else:
-		move = moving(paths, stephan, ghost, coords_of_map)
+    coords_of_map = get_coords(house)
+    print "Stephan is at: " + str(stephan)
+    print "The Ghost is at: " + str(ghost)
+    if stephan == 1:
+        return('N')
+    else:
+        move = moving(stephan, ghost, coords_of_map)
 
-	return move
-
+    return move
 
 def neighbors(stephan, coords_of_map):
-	neighbors = coords_of_map[stephan]
-	
-	for neighbor in neighbors:
-		if (stephan - neighbor) == 1:
-			direction = ''.join('W')
-		elif (stephan - neighbor) == -1:
-			direction = ''.join('E')
-		elif (stephan - neighbor) == -4:
-			direction = ''.join('S')
-		elif (stephan - neighbor) == 4:
-			direction = ''.join('N')
-		print direction
-		return direction
+    neighbors = coords_of_map[stephan]
 
-def moving(paths, stephan, ghost, coords_of_map):
-	clear_paths = []
-	visited = []
-	for path in paths:
-		if ghost not in path:
-			clear_paths.append(path)
-		else:
-			continue			
-	if clear_paths:
-        print 'clear_paths'
-        for path in sorted(clear_paths):
-            if path[-1] == 1:
-                move = path[1]
-            if (path[0] - move) == 1:
-                direction = ''.join('W')
-            elif (path[0] - move) == -1:
-                direction = ''.join('E')
-            elif (path[0] - move) == -4:
-                direction = ''.join('S')
-            elif (path[0] - move) == 4:
-                direction = ''.join('N')
-            return direction
-	else:
-	    print 'random path'
-		nodes = coords_of_map[stephan]
-		ran = random.randint(1, len(nodes)-1)
-		move = nodes[ran]
-		if (path[0] - move) == -1:
-			direction = ''.join('W')
-		elif (path[0] - move) == 1:
-			direction = ''.join('E')
-		elif (path[0] - move) == -4:
-			direction = ''.join('S')
-		elif (path[0] - move) == 4:
-			direction = ''.join('N')
-		return direction
+    for neighbor in neighbors:
+        if (stephan - neighbor) == 1:
+            direction = ''.join('W')
+        elif (stephan - neighbor) == -1:
+            direction = ''.join('E')
+        elif (stephan - neighbor) == -4:
+            direction = ''.join('S')
+        elif (stephan - neighbor) == 4:
+            direction = ''.join('N')
+    print direction
+    return direction
+
+def moving(stephan, ghost, coords_of_map):
+
+    paths = find_all_paths(coords_of_map, stephan, 1)
+    paths_to_ghost = find_all_paths(coords_of_map, ghost, stephan)
+    shortest_path_to_ghost = paths_to_ghost[0]
+    for path in paths_to_ghost:
+        if len(path) < len(shortest_path_to_ghost):
+            shortest_path_to_ghost = path
+
+    avoidance_paths = []
+    #print "paths to ghost"
+    #print paths_to_ghost
+    #print "shortest path to ghost"
+    #print shortest_path_to_ghost
+    #print len(shortest_path_to_ghost)
+    if len(shortest_path_to_ghost) <= 3:
+        for path in paths:
+            if ghost not in path:
+                avoidance_paths.append(path)
+    #print "avioidance paths before ifloop"
+    #print avoidance_paths
+    if avoidance_paths:
+        print('avoidance_paths')
+
+        shortest_adoidance_path = avoidance_paths[0]
+
+        for path in avoidance_paths:
+            if len(path) < len(shortest_adoidance_path):
+                shortest_adoidance_path = path
+
+        move = shortest_adoidance_path[1]
+        if (shortest_adoidance_path[0] - move) == 1:
+            direction = ''.join('W')
+        elif (shortest_adoidance_path[0] - move) == -1:
+            direction = ''.join('E')
+        elif (shortest_adoidance_path[0] - move) == -4:
+            direction = ''.join('S')
+        elif (shortest_adoidance_path[0] - move) == 4:
+            direction = ''.join('N')
+        return direction
+
+    else:
+        print('clear_path')
+        shortest_path = paths[0]
+
+        for path in paths:
+            if len(path) < len(shortest_path):
+                shortest_path = path
+
+        move = shortest_path[1]
+        if (shortest_path[0] - move) == 1:
+            direction = ''.join('W')
+        elif (shortest_path[0] - move) == -1:
+            direction = ''.join('E')
+        elif (shortest_path[0] - move) == -4:
+            direction = ''.join('S')
+        elif (shortest_path[0] - move) == 4:
+            direction = ''.join('N')
+        return direction
 
 
 def find_all_paths(graph, start, end, path=[]):
@@ -83,7 +104,7 @@ def find_all_paths(graph, start, end, path=[]):
 
 def get_coords(house):
     Map = {}
-    
+
     def make_room(directions, doors=None):
         list(doors)
         newdir = []
@@ -100,19 +121,18 @@ def get_coords(house):
             if key in directions:
                 newdir.append(value)
         return newdir
-	
-    
+
     for room, doors in enumerate(house):
         theroom = room + 1
         N = (room-3)
         E = (room+2)
         S = (room+5)
         W = (room)
-        
+
 
         #Left edge and top edge
         if theroom % 4 == 1 and (room-4) < 0:
-            Map[theroom] = make_room(['E', 'S'], doors)       
+            Map[theroom] = make_room(['E', 'S'], doors)
         #Right edge and top edge
         elif theroom % 4 == 0 and (room-4) < 0:
             Map[theroom] = make_room(['W', 'S'], doors,)
@@ -137,12 +157,7 @@ def get_coords(house):
         #Middle
         else:
             Map[theroom] = make_room(['E', 'W', 'N', 'S'], doors,)
-        
-        
-        
-        
-        
-    
+
     return Map
 
 
@@ -211,3 +226,8 @@ if __name__ == '__main__':
                            "E", "ESW", "ESW", "W",
                            "E", "ENW", "ENW", "W",
                            "", "", "", ""]), "2nd example"
+    assert check_solution(checkio,
+                            ["","","","",
+                            "E","ESW","ESW","W",
+                            "E","ENW","ENW","W",
+                            "","","",""]), "pycheckio example"
