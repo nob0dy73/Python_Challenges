@@ -1,33 +1,35 @@
-import random
-
 def checkio(house, stephan, ghost):
     coords_of_map = get_coords(house)
     print "Stephan is at: " + str(stephan)
     print "The Ghost is at: " + str(ghost)
     if stephan == 1:
-        return('N')
+        return 'N'
     else:
-        move = moving(stephan, ghost, coords_of_map)
+        move = step(stephan, ghost, coords_of_map)
 
     return move
 
-def neighbors(stephan, coords_of_map):
-    neighbors = coords_of_map[stephan]
 
-    for neighbor in neighbors:
-        if (stephan - neighbor) == 1:
-            direction = ''.join('W')
-        elif (stephan - neighbor) == -1:
-            direction = ''.join('E')
-        elif (stephan - neighbor) == -4:
-            direction = ''.join('S')
-        elif (stephan - neighbor) == 4:
-            direction = ''.join('N')
-    print direction
+def direction(paths_direction):
+    shortest_path = paths_direction[0]
+
+    for path in paths_direction:
+        if len(path) < len(shortest_path):
+            shortest_path = path
+
+    move = shortest_path[1]
+    if (shortest_path[0] - move) == 1:
+        direction = ''.join('W')
+    elif (shortest_path[0] - move) == -1:
+        direction = ''.join('E')
+    elif (shortest_path[0] - move) == -4:
+        direction = ''.join('S')
+    elif (shortest_path[0] - move) == 4:
+        direction = ''.join('N')
     return direction
 
-def moving(stephan, ghost, coords_of_map):
 
+def step(stephan, ghost, coords_of_map):
     paths = find_all_paths(coords_of_map, stephan, 1)
     paths_to_ghost = find_all_paths(coords_of_map, ghost, stephan)
     shortest_path_to_ghost = paths_to_ghost[0]
@@ -36,55 +38,17 @@ def moving(stephan, ghost, coords_of_map):
             shortest_path_to_ghost = path
 
     avoidance_paths = []
-    #print "paths to ghost"
-    #print paths_to_ghost
-    #print "shortest path to ghost"
-    #print shortest_path_to_ghost
-    #print len(shortest_path_to_ghost)
     if len(shortest_path_to_ghost) <= 3:
         for path in paths:
             if ghost not in path:
                 avoidance_paths.append(path)
-    #print "avioidance paths before ifloop"
-    #print avoidance_paths
     if avoidance_paths:
         print('avoidance_paths')
-
-        shortest_adoidance_path = avoidance_paths[0]
-
-        for path in avoidance_paths:
-            if len(path) < len(shortest_adoidance_path):
-                shortest_adoidance_path = path
-
-        move = shortest_adoidance_path[1]
-        if (shortest_adoidance_path[0] - move) == 1:
-            direction = ''.join('W')
-        elif (shortest_adoidance_path[0] - move) == -1:
-            direction = ''.join('E')
-        elif (shortest_adoidance_path[0] - move) == -4:
-            direction = ''.join('S')
-        elif (shortest_adoidance_path[0] - move) == 4:
-            direction = ''.join('N')
-        return direction
+        return direction(avoidance_paths)
 
     else:
         print('clear_path')
-        shortest_path = paths[0]
-
-        for path in paths:
-            if len(path) < len(shortest_path):
-                shortest_path = path
-
-        move = shortest_path[1]
-        if (shortest_path[0] - move) == 1:
-            direction = ''.join('W')
-        elif (shortest_path[0] - move) == -1:
-            direction = ''.join('E')
-        elif (shortest_path[0] - move) == -4:
-            direction = ''.join('S')
-        elif (shortest_path[0] - move) == 4:
-            direction = ''.join('N')
-        return direction
+        return direction(paths)
 
 
 def find_all_paths(graph, start, end, path=[]):
@@ -111,8 +75,7 @@ def get_coords(house):
         cardnialdir = {'N' : (room-3),
                        'E' : (room+2),
                        'S' : (room+5),
-                       'W' : (room),
-                       }
+                       'W' : (room),}
         if doors:
             for door in doors:
                 if door in directions:
