@@ -84,6 +84,8 @@ BufferedIncrementalDecoder	virtual_environment/webdev/lib/python2.7/codecs.py	/^
 BufferedIncrementalDecoder	virtual_environment/webdev/local/lib/python2.7/codecs.py	/^class BufferedIncrementalDecoder(IncrementalDecoder):$/;"	kind:class	line:278
 BufferedIncrementalEncoder	virtual_environment/webdev/lib/python2.7/codecs.py	/^class BufferedIncrementalEncoder(IncrementalEncoder):$/;"	kind:class	line:196
 BufferedIncrementalEncoder	virtual_environment/webdev/local/lib/python2.7/codecs.py	/^class BufferedIncrementalEncoder(IncrementalEncoder):$/;"	kind:class	line:196
+Building	Building_base.py	/^class Building:$/;"	kind:class	line:1
+Building_base.py	Building_base.py	1;"	kind:file	line:1
 BuiltinFunctionType	virtual_environment/webdev/lib/python2.7/types.py	/^BuiltinFunctionType = type(len)$/;"	kind:variable	line:59
 BuiltinFunctionType	virtual_environment/webdev/local/lib/python2.7/types.py	/^BuiltinFunctionType = type(len)$/;"	kind:variable	line:59
 BuiltinMethodType	virtual_environment/webdev/lib/python2.7/types.py	/^BuiltinMethodType = type([].append)     # Same as BuiltinFunctionType$/;"	kind:variable	line:60
@@ -381,8 +383,8 @@ DEBUG	virtual_environment/webdev/local/lib/python2.7/re.py	/^DEBUG = sre_compile
 DEBUG	virtual_environment/webdev/websites/website1/website1/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
 DIGITS	virtual_environment/webdev/lib/python2.7/sre_parse.py	/^DIGITS = set("0123456789")$/;"	kind:variable	line:22
 DIGITS	virtual_environment/webdev/local/lib/python2.7/sre_parse.py	/^DIGITS = set("0123456789")$/;"	kind:variable	line:22
-DIRS	Haunted_house.py	/^    DIRS = {"N": -4, "S": 4, "E": 1, "W": -1}$/;"	kind:variable	line:361
 Days_Between.py	Days_Between.py	1;"	kind:file	line:1
+Determine_the_order.py	Determine_the_order.py	1;"	kind:file	line:1
 DictMixin	virtual_environment/webdev/lib/python2.7/UserDict.py	/^class DictMixin:$/;"	kind:class	line:87
 DictMixin	virtual_environment/webdev/local/lib/python2.7/UserDict.py	/^class DictMixin:$/;"	kind:class	line:87
 DictProxyType	virtual_environment/webdev/lib/python2.7/types.py	/^DictProxyType = type(TypeType.__dict__)$/;"	kind:variable	line:77
@@ -1924,6 +1926,7 @@ __iand__	virtual_environment/webdev/lib/python2.7/_abcoll.py	/^    def __iand__(
 __iand__	virtual_environment/webdev/lib/python2.7/_weakrefset.py	/^    def __iand__(self, other):$/;"	kind:member	line:151
 __iand__	virtual_environment/webdev/local/lib/python2.7/_abcoll.py	/^    def __iand__(self, it):$/;"	kind:member	line:314
 __iand__	virtual_environment/webdev/local/lib/python2.7/_weakrefset.py	/^    def __iand__(self, other):$/;"	kind:member	line:151
+__init__	Building_base.py	/^    def __init__(self, south, west, width_WE, width_NS, height=10):$/;"	kind:member	line:2
 __init__	Friends.py	/^    def __init__(self, connections):$/;"	kind:member	line:3
 __init__	virtual_environment/webdev/lib/python2.7/UserDict.py	/^    def __init__(self, dict=None, **kwargs):$/;"	kind:member	line:4
 __init__	virtual_environment/webdev/lib/python2.7/_abcoll.py	/^    def __init__(self, mapping):$/;"	kind:member	line:414
@@ -2100,6 +2103,7 @@ __or__	virtual_environment/webdev/local/lib/python2.7/_abcoll.py	/^    def __or_
 __or__	virtual_environment/webdev/local/lib/python2.7/_weakrefset.py	/^    __or__ = union$/;"	kind:variable	line:201
 __reduce__	virtual_environment/webdev/lib/python2.7/_weakrefset.py	/^    def __reduce__(self):$/;"	kind:member	line:77
 __reduce__	virtual_environment/webdev/local/lib/python2.7/_weakrefset.py	/^    def __reduce__(self):$/;"	kind:member	line:77
+__repr__	Building_base.py	/^    def __repr__(self):$/;"	kind:member	line:24
 __repr__	virtual_environment/webdev/lib/python2.7/UserDict.py	/^    def __repr__(self): return repr(self.data)$/;"	kind:member	line:10
 __repr__	virtual_environment/webdev/lib/python2.7/UserDict.py	/^    def __repr__(self):$/;"	kind:member	line:171
 __repr__	virtual_environment/webdev/lib/python2.7/_abcoll.py	/^    def __repr__(self):$/;"	kind:member	line:420
@@ -2444,12 +2448,15 @@ append	virtual_environment/webdev/local/lib/python2.7/_abcoll.py	/^    def appen
 append	virtual_environment/webdev/local/lib/python2.7/sre_parse.py	/^    def append(self, code):$/;"	kind:member	line:138
 application	virtual_environment/webdev/websites/website1/website1/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
 apps.py	virtual_environment/webdev/websites/website1/polls/apps.py	1;"	kind:file	line:1
+area	Building_base.py	/^    def area(self):$/;"	kind:member	line:18
 ascii.py	virtual_environment/webdev/lib/python2.7/encodings/ascii.py	1;"	kind:file	line:1
 ascii.py	virtual_environment/webdev/local/lib/python2.7/encodings/ascii.py	1;"	kind:file	line:1
 atof	virtual_environment/webdev/lib/python2.7/locale.py	/^def atof(string, func=float):$/;"	kind:function	line:305
 atof	virtual_environment/webdev/local/lib/python2.7/locale.py	/^def atof(string, func=float):$/;"	kind:function	line:305
 atoi	virtual_environment/webdev/lib/python2.7/locale.py	/^def atoi(str):$/;"	kind:function	line:318
 atoi	virtual_environment/webdev/local/lib/python2.7/locale.py	/^def atoi(str):$/;"	kind:function	line:318
+b	Building_base.py	/^    b = Building(1, 2, 2, 3)$/;"	kind:variable	line:34
+b2	Building_base.py	/^    b2 = Building(1, 2, 2, 3, 5)$/;"	kind:variable	line:35
 backslashreplace_errors	virtual_environment/webdev/lib/python2.7/codecs.py	/^    backslashreplace_errors = None$/;"	kind:variable	line:1079
 backslashreplace_errors	virtual_environment/webdev/lib/python2.7/codecs.py	/^    backslashreplace_errors = lookup_error("backslashreplace")$/;"	kind:variable	line:1072
 backslashreplace_errors	virtual_environment/webdev/local/lib/python2.7/codecs.py	/^    backslashreplace_errors = None$/;"	kind:variable	line:1079
@@ -2494,11 +2501,12 @@ check_it	python9.py	/^    def check_it(array):$/;"	kind:function	line:28
 check_route	Open_Labyrinth.py	/^    def check_route(func, labyrinth):$/;"	kind:function	line:82
 check_route	Open_Labyrinth2.py	/^    def check_route(func, labyrinth):$/;"	kind:function	line:21
 check_solution	Disposable_teleports.py	/^    def check_solution(func, teleports_str):$/;"	kind:function	line:64
-check_solution	Haunted_house.py	/^    def check_solution(func, house):$/;"	kind:function	line:363
+check_solution	Haunted_house.py	/^    def check_solution(func, house):$/;"	kind:function	line:138
 checkcache	virtual_environment/webdev/lib/python2.7/linecache.py	/^def checkcache(filename=None):$/;"	kind:function	line:43
 checkcache	virtual_environment/webdev/local/lib/python2.7/linecache.py	/^def checkcache(filename=None):$/;"	kind:function	line:43
 checkgroup	virtual_environment/webdev/lib/python2.7/sre_parse.py	/^    def checkgroup(self, gid):$/;"	kind:member	line:85
 checkgroup	virtual_environment/webdev/local/lib/python2.7/sre_parse.py	/^    def checkgroup(self, gid):$/;"	kind:member	line:85
+checkio	Determine_the_order.py	/^def checkio(data):$/;"	kind:function	line:3
 checkio	Disposable_teleports.py	/^def checkio(teleports_string):$/;"	kind:function	line:4
 checkio	Ghost_age.py	/^def checkio(opacity):$/;"	kind:function	line:3
 checkio	Haunted_house.py	/^def checkio(house, stephan, ghost):$/;"	kind:function	line:1
@@ -2795,6 +2803,7 @@ copy	virtual_environment/webdev/local/lib/python2.7/os.py	/^            def copy
 copy	virtual_environment/webdev/local/lib/python2.7/os.py	/^            def copy(self):$/;"	kind:member	line:504
 copy_reg.py	virtual_environment/webdev/lib/python2.7/copy_reg.py	1;"	kind:file	line:1
 copy_reg.py	virtual_environment/webdev/local/lib/python2.7/copy_reg.py	1;"	kind:file	line:1
+corners	Building_base.py	/^    def corners(self):$/;"	kind:member	line:10
 count	virtual_environment/webdev/lib/python2.7/_abcoll.py	/^    def count(self, value):$/;"	kind:member	line:606
 count	virtual_environment/webdev/local/lib/python2.7/_abcoll.py	/^    def count(self, value):$/;"	kind:member	line:606
 cp037.py	virtual_environment/webdev/lib/python2.7/encodings/cp037.py	1;"	kind:file	line:1
@@ -3516,6 +3525,7 @@ difference_update	virtual_environment/webdev/local/lib/python2.7/_weakrefset.py	
 digit_friends	Friends.py	/^    digit_friends = Friends([{"1", "2"}, {"3", "1"}])$/;"	kind:variable	line:59
 digits	virtual_environment/webdev/lib/python2.7/encodings/punycode.py	/^digits = "abcdefghijklmnopqrstuvwxyz0123456789"$/;"	kind:variable	line:79
 digits	virtual_environment/webdev/local/lib/python2.7/encodings/punycode.py	/^digits = "abcdefghijklmnopqrstuvwxyz0123456789"$/;"	kind:variable	line:79
+direction	Haunted_house.py	/^def direction(paths_direction):$/;"	kind:function	line:13
 dirname	virtual_environment/webdev/lib/python2.7/distutils/__init__.py	/^dirname = os.path.dirname$/;"	kind:variable	line:9
 dirname	virtual_environment/webdev/lib/python2.7/ntpath.py	/^def dirname(p):$/;"	kind:function	line:175
 dirname	virtual_environment/webdev/lib/python2.7/posixpath.py	/^def dirname(p):$/;"	kind:function	line:127
@@ -4211,7 +4221,7 @@ filterwarnings	virtual_environment/webdev/local/lib/python2.7/warnings.py	/^def 
 finalize_options	virtual_environment/webdev/lib/python2.7/distutils/__init__.py	/^        def finalize_options (self):$/;"	kind:member	line:38
 finalize_options	virtual_environment/webdev/local/lib/python2.7/distutils/__init__.py	/^        def finalize_options (self):$/;"	kind:member	line:38
 find_all_paths	Disposable_teleports.py	/^def find_all_paths(graph, start, end, path):$/;"	kind:function	line:43
-find_all_paths	Haunted_house.py	/^def find_all_paths(graph, start, end, path=[]):$/;"	kind:function	line:25
+find_all_paths	Haunted_house.py	/^def find_all_paths(graph, start, end, path=[]):$/;"	kind:function	line:54
 find_config_files	virtual_environment/webdev/lib/python2.7/distutils/__init__.py	/^def find_config_files(self):$/;"	kind:function	line:53
 find_config_files	virtual_environment/webdev/local/lib/python2.7/distutils/__init__.py	/^def find_config_files(self):$/;"	kind:function	line:53
 find_message	python3.py	/^def find_message(text):$/;"	kind:function	line:3
@@ -4262,7 +4272,7 @@ get	virtual_environment/webdev/local/lib/python2.7/UserDict.py	/^    def get(sel
 get	virtual_environment/webdev/local/lib/python2.7/_abcoll.py	/^    def get(self, key, default=None):$/;"	kind:member	line:360
 get	virtual_environment/webdev/local/lib/python2.7/os.py	/^            def get(self, key, failobj=None):$/;"	kind:member	line:444
 get	virtual_environment/webdev/local/lib/python2.7/sre_parse.py	/^    def get(self):$/;"	kind:member	line:201
-get_coords	Haunted_house.py	/^def get_coords(house):$/;"	kind:function	line:39
+get_coords	Haunted_house.py	/^def get_coords(house):$/;"	kind:function	line:69
 get_neighbours	Open_Labyrinth.py	/^def get_neighbours(coords_of_map, position):$/;"	kind:function	line:23
 get_nodes	Disposable_teleports.py	/^def get_nodes(mylist):$/;"	kind:function	line:26
 get_passphrase	Solve_Cipher_map.py	/^def get_passphrase(ciphered_password, coords_of_X):$/;"	kind:function	line:19
@@ -4713,6 +4723,7 @@ join	virtual_environment/webdev/local/lib/python2.7/ntpath.py	/^def join(path, *
 join	virtual_environment/webdev/local/lib/python2.7/posixpath.py	/^def join(a, *p):$/;"	kind:function	line:68
 joinuser	virtual_environment/webdev/lib/python2.7/site.py	/^    def joinuser(*args):$/;"	kind:function	line:324
 joinuser	virtual_environment/webdev/local/lib/python2.7/site.py	/^    def joinuser(*args):$/;"	kind:function	line:324
+json_dict	Building_base.py	/^    def json_dict(d):$/;"	kind:function	line:31
 keys	virtual_environment/webdev/lib/python2.7/UserDict.py	/^    def keys(self): return self.data.keys()$/;"	kind:member	line:39
 keys	virtual_environment/webdev/lib/python2.7/_abcoll.py	/^    def keys(self):$/;"	kind:member	line:389
 keys	virtual_environment/webdev/local/lib/python2.7/UserDict.py	/^    def keys(self): return self.data.keys()$/;"	kind:member	line:39
@@ -4779,6 +4790,7 @@ make_encoding_map	virtual_environment/webdev/lib/python2.7/codecs.py	/^def make_
 make_encoding_map	virtual_environment/webdev/local/lib/python2.7/codecs.py	/^def make_encoding_map(decoding_map):$/;"	kind:function	line:1044
 make_identity_dict	virtual_environment/webdev/lib/python2.7/codecs.py	/^def make_identity_dict(rng):$/;"	kind:function	line:1031
 make_identity_dict	virtual_environment/webdev/local/lib/python2.7/codecs.py	/^def make_identity_dict(rng):$/;"	kind:function	line:1031
+make_room	Haunted_house.py	/^    def make_room(directions, doors=None):$/;"	kind:function	line:72
 makedict	virtual_environment/webdev/lib/python2.7/sre_constants.py	/^def makedict(list):$/;"	kind:function	line:149
 makedict	virtual_environment/webdev/local/lib/python2.7/sre_constants.py	/^def makedict(list):$/;"	kind:function	line:149
 makedirs	virtual_environment/webdev/lib/python2.7/os.py	/^def makedirs(name, mode=0777):$/;"	kind:function	line:136
@@ -4799,7 +4811,6 @@ mbcs.py	virtual_environment/webdev/local/lib/python2.7/encodings/mbcs.py	1;"	kin
 min	Min_and_Max.py	/^def min(*args, **kwargs):$/;"	kind:function	line:2
 model_name	virtual_environment/webdev/websites/website1/polls/migrations/0001_initial.py	/^            model_name='choice',$/;"	kind:variable	line:34
 models.py	virtual_environment/webdev/websites/website1/polls/models.py	1;"	kind:file	line:1
-moving	Haunted_house.py	/^def moving(paths, ghost):$/;"	kind:function	line:10
 name	virtual_environment/webdev/lib/python2.7/os.py	/^    name = 'ce'$/;"	kind:variable	line:88
 name	virtual_environment/webdev/lib/python2.7/os.py	/^    name = 'nt'$/;"	kind:variable	line:56
 name	virtual_environment/webdev/lib/python2.7/os.py	/^    name = 'os2'$/;"	kind:variable	line:70
@@ -5204,6 +5215,7 @@ sre_parse.py	virtual_environment/webdev/lib/python2.7/sre_parse.py	1;"	kind:file
 sre_parse.py	virtual_environment/webdev/local/lib/python2.7/sre_parse.py	1;"	kind:file	line:1
 stat.py	virtual_environment/webdev/lib/python2.7/stat.py	1;"	kind:file	line:1
 stat.py	virtual_environment/webdev/local/lib/python2.7/stat.py	1;"	kind:file	line:1
+step	Haunted_house.py	/^def step(stephan, ghost, coords_of_map):$/;"	kind:function	line:32
 str	virtual_environment/webdev/lib/python2.7/locale.py	/^def str(val):$/;"	kind:function	line:301
 str	virtual_environment/webdev/local/lib/python2.7/locale.py	/^def str(val):$/;"	kind:function	line:301
 strcoll	virtual_environment/webdev/lib/python2.7/locale.py	/^    def strcoll(a,b):$/;"	kind:function	line:91
@@ -5318,6 +5330,7 @@ virtual_addsitepackages	virtual_environment/webdev/lib/python2.7/site.py	/^def v
 virtual_addsitepackages	virtual_environment/webdev/local/lib/python2.7/site.py	/^def virtual_addsitepackages(known_paths):$/;"	kind:function	line:642
 virtual_install_main_packages	virtual_environment/webdev/lib/python2.7/site.py	/^def virtual_install_main_packages():$/;"	kind:function	line:552
 virtual_install_main_packages	virtual_environment/webdev/local/lib/python2.7/site.py	/^def virtual_install_main_packages():$/;"	kind:function	line:552
+volume	Building_base.py	/^    def volume(self):$/;"	kind:member	line:21
 vote	virtual_environment/webdev/websites/website1/polls/views.py	/^def vote(request, question_id):$/;"	kind:function	line:21
 votes	virtual_environment/webdev/websites/website1/polls/models.py	/^    votes = models.IntegerField(default=0)$/;"	kind:variable	line:24
 walk	virtual_environment/webdev/lib/python2.7/ntpath.py	/^def walk(top, func, arg):$/;"	kind:function	line:211
